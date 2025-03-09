@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.gestion_hospital;
+package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
