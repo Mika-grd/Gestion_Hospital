@@ -1,19 +1,20 @@
 package co.edu.uniquindio.poo.gestion_hospital.model;
 
+import java.util.LinkedList;
+
 public class Paciente {
 
     private String nombre, idPaciente;
     private int edad;
-    private Tratamiento tratamiento;
+    private LinkedList<Reporte> historialMedico;
 
-    // Constructor
-    public Paciente(String nombre, String idPaciente, int edad) {
+    public Paciente(String nombre, String idPaciente, int edad, LinkedList<Reporte> historialMedico) {
         this.nombre = nombre;
         this.idPaciente = idPaciente;
         this.edad = edad;
+        this.historialMedico = historialMedico;
     }
 
-    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -38,17 +39,11 @@ public class Paciente {
         this.edad = edad;
     }
 
-    public Tratamiento getTratamiento() {
-        return tratamiento;
+    public LinkedList<Reporte> getHistorialMedico() {
+        return historialMedico;
     }
 
-    public void setTratamiento(Tratamiento tratamiento) {
-        this.tratamiento = tratamiento;
-    }
-
-    // Método toString
-    @Override
-    public String toString() {
-        return "Paciente [nombre=" + nombre + ", idPaciente=" + idPaciente + ", edad=" + edad + "]";
+    public void setHistorialMedico(LinkedList<Reporte> historialMedico) {
+        this.historialMedico = historialMedico;
     }
 }
