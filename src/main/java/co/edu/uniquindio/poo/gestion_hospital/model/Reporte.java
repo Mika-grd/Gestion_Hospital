@@ -4,10 +4,13 @@ import java.time.LocalDate;
 
 public class Reporte implements IHistorialMedico, Cloneable {
 
+    private Hospital hospital = Hospital.getInstance();
     private LocalDate fecha;
     private String descripcion;
     private Paciente paciente;
     private String medicamento;
+
+
 
     @Override
     public Reporte clone() {

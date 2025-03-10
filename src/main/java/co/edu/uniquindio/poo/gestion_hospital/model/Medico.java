@@ -1,9 +1,11 @@
 package co.edu.uniquindio.poo.gestion_hospital.model;
 
+import java.util.LinkedList;
+
 public class Medico {
 
     private String nombre,idMedico;
-    private Reporte historialMedico;
+    private LinkedList<Cita> citasPropias = new LinkedList<>();
 
     // Constructor
     public Medico(String nombre, String idMedico) {
@@ -30,12 +32,12 @@ public class Medico {
         this.idMedico = idMedico;
     }
 
-    public Reporte getHistorialMedico() {
-        return historialMedico;
+    public LinkedList<Cita> getCitasPropias() {
+        return citasPropias;
     }
 
-    public void setHistorialMedico(Reporte historialMedico) {
-        this.historialMedico = historialMedico;
+    public void setCitasPropias(LinkedList<Cita> citasPropias) {
+        this.citasPropias = citasPropias;
     }
 
     // Método toString

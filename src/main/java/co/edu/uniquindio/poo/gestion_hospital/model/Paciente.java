@@ -4,9 +4,21 @@ import java.util.LinkedList;
 
 public class Paciente {
 
+    private final Hospital hospital = Hospital.getInstance();
     private String nombre, idPaciente;
     private int edad;
     private LinkedList<Reporte> historialMedico;
+    private LinkedList<Cita> citasPropias = new LinkedList<>();
+
+    /*CRUD Reporte*/
+
+    public String agregarReporte(Reporte reporte) {
+        return hospital.agregarReporte(reporte, historialMedico);
+    }
+
+    public String eliminarReporte(Reporte reporte) {
+        return hospital.eliminarReporte(reporte, historialMedico);
+    }
 
     public Paciente(String nombre, String idPaciente, int edad, LinkedList<Reporte> historialMedico) {
         this.nombre = nombre;
@@ -45,5 +57,13 @@ public class Paciente {
 
     public void setHistorialMedico(LinkedList<Reporte> historialMedico) {
         this.historialMedico = historialMedico;
+    }
+
+    public LinkedList<Cita> getCitasPropias() {
+        return citasPropias;
+    }
+
+    public void setCitasPropias(LinkedList<Cita> citasPropias) {
+        this.citasPropias = citasPropias;
     }
 }

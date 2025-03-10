@@ -135,6 +135,26 @@ public class Hospital {
         return null; // Retorna null si no se encuentra el objeto con el ID dado
     }
 
+    /* CRUD Reporte */
+    public String agregarReporte(Reporte reporte, LinkedList<Reporte> listaReportes) {
+        return agregarObjeto(reporte, listaReportes);
+    }
+
+    public String eliminarReporte(Reporte reporte, LinkedList<Reporte> listaReportes) {
+        return eliminarObjeto(reporte, listaReportes);
+    }
+
+    public String editarReporte(Reporte reporte, Reporte reporteNuevo, LinkedList<Reporte> listaReportes) {
+        if (listaReportes.contains(reporte)) {
+            return editarObjeto(reporte, reporteNuevo, listaReportes);
+        }
+        return "No existe";
+    }
+
+    public Reporte buscarReporte(String idReporte, LinkedList<Reporte> listaReportes) {
+        return buscarObjeto(idReporte, listaReportes);
+    }
+
 
     /*CRUD Medico*/
 
