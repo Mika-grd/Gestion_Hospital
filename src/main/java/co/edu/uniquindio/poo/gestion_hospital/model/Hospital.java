@@ -1,24 +1,85 @@
 package co.edu.uniquindio.poo.gestion_hospital.model;
 
 
-
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Hospital {
     private String nombre;
+    public static String horarioAtencion;
+    public static int maxPacientes;
+    public static boolean isFacturacionElectronica;
     private LinkedList <Medico> ListaMedicos;
     private LinkedList<Paciente> ListaPacientes;
     private LinkedList<Cita> ListaCitas;
     private static Hospital instance;
 
-    private Hospital(String nombre, LinkedList <Medico> ListaMedicos, LinkedList<Paciente> ListaPacientes, LinkedList<Cita> ListaCitas){
+    /* Muestra todos los pacientes con nombres palindromos en una lista de Pacientes */
+    public LinkedList<Paciente> pacientesDosVocales(){
+        LinkedList<Paciente> pacientes = new LinkedList<>();
+        for (Paciente paciente : ListaPacientes){
+            if(twoVowelsInName(paciente.getNombre())){
+                pacientes.add(paciente);
+            }
+        }
+        return pacientes;
+    }
+
+    private boolean twoVowelsInName(String nombre){
+        char[] chars = nombre.toCharArray();
+        int count = 0;
+        for (char c : chars) {
+            if (isVowel(c)){
+                count++;
+            }
+        }
+        if (count >= 2){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isVowel(char c) {
+        return "AEIOUaeiou".indexOf(c) != -1;
+    }
+
+    /* Muestra todos los pacientes con nombres palindromos en una lista de Pacientes */
+    public LinkedList<Paciente> pacientesPalindromos(){
+        LinkedList<Paciente> pacientes = new LinkedList<>();
+        for (Paciente paciente : ListaPacientes){
+            if(isPalindrome(paciente.getNombre())){
+                pacientes.add(paciente);
+            }
+        }
+        return pacientes;
+    }
+
+    private boolean isPalindrome(String nombre) {
+        String lower = nombre.toLowerCase();
+        return lower.contentEquals(new StringBuilder(lower).reverse());
+    }
+
+    public Hospital(String nombre, LinkedList<Medico> listaMedicos, LinkedList<Paciente> listaPacientes, LinkedList<Cita> listaCitas) {
         this.nombre = nombre;
-        this.ListaMedicos = ListaMedicos;
-        this.ListaPacientes = ListaPacientes;
-        this.ListaCitas = ListaCitas;
+        horarioAtencion = "24 horas";
+        maxPacientes = 30;
+        isFacturacionElectronica = true;
+        ListaMedicos = listaMedicos;
+        ListaPacientes = listaPacientes;
+        ListaCitas = listaCitas;
+    }
+
+    /*Cambiar configuracion desde cualquier lugar */
+    public static String cambiarConfiguracion(String horarioAtencion, int maxPacientes, boolean isFacturacionElectronica) {
+        if (horarioAtencion != null) {
+            setHorarioAtencion(horarioAtencion);
+            setMaxPacientes(maxPacientes);
+            setFacturacionElectronica(isFacturacionElectronica);
+            return horarioAtencion;
+        }
+        return "No hay horario atencion";
     }
 
     /*Implementacion del singleton*/
@@ -173,5 +234,29 @@ public class Hospital {
 
     public void setListaCitas(LinkedList<Cita> listaCitas) {
         ListaCitas = listaCitas;
+    }
+
+    public String getHorarioAtencion() {
+        return horarioAtencion;
+    }
+
+    public static void setHorarioAtencion(String horarioAtencion) {
+        horarioAtencion = horarioAtencion;
+    }
+
+    public int getMaxPacientes() {
+        return maxPacientes;
+    }
+
+    public static void setMaxPacientes(int maxPacientes) {
+        maxPacientes = maxPacientes;
+    }
+
+    public  boolean isFacturacionElectronica() {
+        return isFacturacionElectronica;
+    }
+
+    public static void setFacturacionElectronica(boolean facturacionElectronica) {
+        isFacturacionElectronica = facturacionElectronica;
     }
 }

@@ -2,13 +2,13 @@ package co.edu.uniquindio.poo.gestion_hospital.model;
 
 public class Medico {
 
-    private String nombre,especialidad,idMedico;
-    private HistorialMedico historialMedico;
+    private String nombre,idMedico;
+    private Reporte historialMedico;
 
     // Constructor
-    public Medico(String nombre, String especialidad, String idMedico) {
+    public Medico(String nombre, String idMedico) {
         this.nombre = nombre;
-        this.especialidad = especialidad;
+
         this.idMedico = idMedico;
     }
 
@@ -21,13 +21,6 @@ public class Medico {
         this.nombre = nombre;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
 
     public String getIdMedico() {
         return idMedico;
@@ -37,17 +30,17 @@ public class Medico {
         this.idMedico = idMedico;
     }
 
-    public HistorialMedico getHistorialMedico() {
+    public Reporte getHistorialMedico() {
         return historialMedico;
     }
 
-    public void setHistorialMedico(HistorialMedico historialMedico) {
+    public void setHistorialMedico(Reporte historialMedico) {
         this.historialMedico = historialMedico;
     }
 
     // Método toString
     @Override
     public String toString() {
-        return "Medico [nombre=" + nombre + ", especialidad=" + especialidad + ", idMedico=" + idMedico + "]";
+        return "Medico [nombre=" + nombre +  " idMedico=" + idMedico + "]";
     }
 }
