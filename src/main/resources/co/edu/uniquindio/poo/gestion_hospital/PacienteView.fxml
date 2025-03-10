@@ -26,6 +26,7 @@
             <TextField fx:id="pacienteCedulaCampo" prefHeight="30.0" prefWidth="287.0" promptText="Cédula" />
             <TextField fx:id="pacienteEdadCampo" prefHeight="30.0" prefWidth="287.0" promptText="Edad" />
             <Button fx:id="añadirPacienteBoton" onAction="#añadirPacienteAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Añadir Paciente" />
+            <Button fx:id="eliminarPacienteBoton" onAction="#eliminarPacienteAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Eliminar Paciente" />
             <Button fx:id="atrasBoton" mnemonicParsing="false" onAction="#atrasAccion" text="Atras" textFill="RED" />
          </children>
       </VBox>
