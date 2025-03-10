@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="552.0" prefWidth="718.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestion_hospital.controller.ConfiguracionController">
+   <children>
+      <AnchorPane layoutY="-6.0" prefHeight="580.0" prefWidth="831.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="56.0" layoutY="65.0" text="Configuración Hospital" wrappingWidth="356.28594970703125">
+               <font>
+                  <Font name="Candara" size="36.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="horariosCombo" layoutX="74.0" layoutY="290.0" onAction="#showHorarios" prefHeight="43.0" prefWidth="165.0" />
+            <ComboBox fx:id="numeroPacientesCombo" layoutX="314.0" layoutY="290.0" onAction="#showNumeroPacientesAction" prefHeight="43.0" prefWidth="165.0" />
+            <ComboBox fx:id="facturacionElectronicaCombo" layoutX="578.0" layoutY="290.0" onAction="#showFacturacionBoolean" prefHeight="43.0" prefWidth="165.0" />
+            <Text fill="WHITE" layoutX="21.0" layoutY="260.0" text="Horario Atención" textAlignment="CENTER" wrappingWidth="271.28594970703125">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="525.0" layoutY="263.0" text="¿Facturación Elctrónica?" textAlignment="CENTER" wrappingWidth="271.28594970703125">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="261.0" layoutY="245.0" text="Numero Pacientes por Medico" textAlignment="CENTER" wrappingWidth="271.28594970703125">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="aplicarBoton" layoutX="347.0" layoutY="396.0" mnemonicParsing="false" onAction="#aplicarCambiosAction" prefHeight="51.0" prefWidth="136.0" text="Aplicar Cambios" />
+            <Button fx:id="atrasBoton" layoutX="378.0" layoutY="492.0" mnemonicParsing="false" onAction="#atrasAccion" prefHeight="36.0" prefWidth="76.0" text="Atras" textFill="RED" />
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="56.0" layoutY="129.0" text="- Los cambios realizados en esta ventana afectaran todo el software del hospital y su comportamiento, se recomienda discreción" wrappingWidth="733.2859497070312">
+               <font>
+                  <Font name="Candara" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
