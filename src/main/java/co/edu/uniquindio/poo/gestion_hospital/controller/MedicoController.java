@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -31,6 +32,9 @@ public class MedicoController {
 
     @FXML
     private TextField busquedaCampo;
+
+    @FXML
+    private Button eliminarMedicoBoton;
 
     @FXML
     private TableColumn<?, ?> idColumna;
@@ -68,6 +72,11 @@ public class MedicoController {
     }
 
     @FXML
+    void eliminarMedicoAccion(ActionEvent event) {
+
+    }
+
+    @FXML
     void recargarAccion(ActionEvent event) {
 
     }
@@ -78,6 +87,7 @@ public class MedicoController {
         assert añadirMedicoBoton != null : "fx:id=\"añadirMedicoBoton\" was not injected: check your FXML file 'MedicoView.fxml'.";
         assert buscarBoton != null : "fx:id=\"buscarBoton\" was not injected: check your FXML file 'MedicoView.fxml'.";
         assert busquedaCampo != null : "fx:id=\"busquedaCampo\" was not injected: check your FXML file 'MedicoView.fxml'.";
+        assert eliminarMedicoBoton != null : "fx:id=\"eliminarMedicoBoton\" was not injected: check your FXML file 'MedicoView.fxml'.";
         assert idColumna != null : "fx:id=\"idColumna\" was not injected: check your FXML file 'MedicoView.fxml'.";
         assert medicoCedulaCampo != null : "fx:id=\"medicoCedulaCampo\" was not injected: check your FXML file 'MedicoView.fxml'.";
         assert medicoNombreCampo != null : "fx:id=\"medicoNombreCampo\" was not injected: check your FXML file 'MedicoView.fxml'.";
@@ -88,4 +98,5 @@ public class MedicoController {
     }
 
 }
+
 
