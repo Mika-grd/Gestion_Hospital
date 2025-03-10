@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="541.0" prefWidth="770.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestion_hospital.controller.PacienteController">
+   <children>
+      <VBox layoutX="24.0" layoutY="111.0" prefHeight="429.0" prefWidth="287.0" spacing="25.0">
+         <children>
+            <Text fill="WHITE" text="Añadir Paciente" wrappingWidth="264.28594970703125">
+               <font>
+                  <Font name="Bodoni MT" size="36.0" />
+               </font>
+            </Text>
+            <TextField fx:id="pacienteNombreCampo" prefHeight="30.0" prefWidth="287.0" promptText="Nombre" />
+            <TextField fx:id="pacienteCedulaCampo" prefHeight="30.0" prefWidth="287.0" promptText="Cédula" />
+            <TextField fx:id="pacienteEdadCampo" prefHeight="30.0" prefWidth="287.0" promptText="Edad" />
+            <Button fx:id="añadirPacienteBoton" onAction="#añadirPacienteAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Añadir Paciente" />
+            <Button fx:id="atrasBoton" mnemonicParsing="false" onAction="#atrasAccion" text="Atras" textFill="RED" />
+         </children>
+      </VBox>
+      <TableView fx:id="medicosTabla" layoutX="325.0" layoutY="82.0" prefHeight="406.0" prefWidth="418.0" style="-fx-background-color: rgba(208, 208, 208, 0.9);">
+         <columns>
+            <TableColumn fx:id="nombreColumna" prefWidth="184.79998779296875" text="Nombre" />
+            <TableColumn fx:id="idColumna" minWidth="0.0" prefWidth="96.79998779296875" text="ID" />
+            <TableColumn fx:id="edadColumna" prefWidth="136.00006103515625" text="Edad" />
+         </columns>
+      </TableView>
+      <HBox layoutX="325.0" layoutY="36.0" prefHeight="46.0" prefWidth="418.0" spacing="10.0" style="-fx-background-color: rgba(208, 208, 208, 0.9);">
+         <children>
+            <TextField fx:id="busquedaCampo" prefHeight="20.0" prefWidth="271.0" />
+            <Button fx:id="buscarBoton" onAction="#buscarAccion" prefHeight="31.0" prefWidth="78.0" text="Buscar" />
+            <Pane prefHeight="36.0" prefWidth="126.0">
+               <children>
+                  <Button fx:id="recargarBoton" mnemonicParsing="false" onAction="#recargarAccion" prefHeight="30.0" prefWidth="68.0" text="Recargar" />
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>
