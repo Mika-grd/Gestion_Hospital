@@ -4,8 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
 public class ConfiguracionController {
 
@@ -37,7 +39,9 @@ public class ConfiguracionController {
 
     @FXML
     void atrasAccion(ActionEvent event) {
-
+        // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
+        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stageActual.close();
     }
 
     @FXML

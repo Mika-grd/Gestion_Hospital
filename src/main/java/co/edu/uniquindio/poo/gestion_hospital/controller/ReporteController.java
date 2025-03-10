@@ -1,6 +1,3 @@
-/**
- * Sample Skeleton for 'ReporteView.fxml' Controller Class
- */
 
 package co.edu.uniquindio.poo.gestion_hospital.controller;
 
@@ -8,12 +5,86 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import javafx.scene.Node;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
+import javafx.stage.Stage;
+
+public class ReporteController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button agregarReporteBoton;
+
+    @FXML
+    private Button atrasBoton;
+
+    @FXML
+    private Button buscarBoton;
+
+    @FXML
+    private TextField busquedaCampo;
+
+    @FXML
+    private Button clonarReporteBoton;
+
+    @FXML
+    private TableColumn<?, ?> colDescripcion;
+
+    @FXML
+    private TableColumn<?, ?> colEnfermedad;
+
+    @FXML
+    private TableColumn<?, ?> colFecha;
+
+    @FXML
+    private TableColumn<?, ?> colMedicamento;
+
+    @FXML
+    private TableColumn<?, ?> colPaciente;
+
+    @FXML
+    private TableColumn<?, ?> colTitulo;
+
+    @FXML
+    private TextField descripcionCampo;
+
+    @FXML
+    private Button eliminarReporteBoton;
+
+    @FXML
+    private TextField enfermedadCampo;
+
+    @FXML
+    private DatePicker fechaReporte;
+
+    @FXML
+    private TextField medicamentoCampo;
+
+    @FXML
+    private ComboBox<?> pacienteComboBox;
+
+    @FXML
+    private Button recargarBoton;
+
+    @FXML
+    private TableView<?> reportesTabla;
+
+    @FXML
+    private TextField tituloCampo;
+
 
 public class ReporteController {
 
@@ -80,12 +151,22 @@ public class ReporteController {
     @FXML // fx:id="tituloCampo"
     private TextField tituloCampo; // Value injected by FXMLLoader
 
+
     @FXML
     void agregarReporteAccion(ActionEvent event) {
 
     }
 
     @FXML
+
+    void atrasAccion(ActionEvent event) {
+        // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
+        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stageActual.close();
+    }
+
+    @FXML
+
     void buscarAccion(ActionEvent event) {
 
     }
@@ -105,9 +186,16 @@ public class ReporteController {
 
     }
 
+
+    @FXML
+    void initialize() {
+        assert agregarReporteBoton != null : "fx:id=\"agregarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
+        assert atrasBoton != null : "fx:id=\"atrasBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
+
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert agregarReporteBoton != null : "fx:id=\"agregarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
+
         assert buscarBoton != null : "fx:id=\"buscarBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
         assert busquedaCampo != null : "fx:id=\"busquedaCampo\" was not injected: check your FXML file 'ReporteView.fxml'.";
         assert clonarReporteBoton != null : "fx:id=\"clonarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
