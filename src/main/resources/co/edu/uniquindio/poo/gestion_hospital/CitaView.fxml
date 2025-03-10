@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="580.0" prefWidth="831.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestion_hospital.controller.CitaController">
+    <children>
+        <VBox layoutX="14.0" layoutY="101.0" prefHeight="429.0" prefWidth="287.0" spacing="20.0">
+            <children>
+                <Text fill="WHITE" text="Gestión de Citas" wrappingWidth="264.28594970703125">
+                    <font>
+                        <Font name="Candara" size="30.0" />
+                    </font>
+                </Text>
+                <ComboBox fx:id="medicoComboBox" prefHeight="30.0" prefWidth="287.0" promptText="Seleccionar Médico" />
+                <ComboBox fx:id="pacienteComboBox" prefHeight="30.0" prefWidth="287.0" promptText="Seleccionar Paciente" />
+                <DatePicker fx:id="fechaPicker" prefHeight="30.0" prefWidth="287.0" promptText="Seleccionar Fecha" />
+                <Button fx:id="añadirCitaBoton" onAction="#añadirCitaAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Añadir Cita" />
+                <Button fx:id="eliminarCitaBoton" onAction="#eliminarCitaAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 16px;" text="Eliminar Cita" />
+                <Button fx:id="atrasBoton" onAction="#atrasAccion" text="Atrás" textFill="RED" />
+            </children>
+        </VBox>
+        <TableView fx:id="citasTabla" layoutX="343.0" layoutY="91.0" prefHeight="439.0" prefWidth="462.0" style="-fx-background-color: rgba(208, 208, 208, 0.9);">
+            <columns>
+                <TableColumn fx:id="medicoColumna" prefWidth="150.0" text="Médico" />
+                <TableColumn fx:id="pacienteColumna" prefWidth="150.0" text="Paciente" />
+                <TableColumn fx:id="fechaColumna" prefWidth="150.0" text="Fecha" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
+
