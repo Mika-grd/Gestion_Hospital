@@ -1,20 +1,16 @@
-
 package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.Node;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-
 import javafx.stage.Stage;
 
 public class ReporteController {
@@ -85,80 +81,12 @@ public class ReporteController {
     @FXML
     private TextField tituloCampo;
 
-
-public class ReporteController {
-
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
-
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
-
-    @FXML // fx:id="agregarReporteBoton"
-    private Button agregarReporteBoton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="buscarBoton"
-    private Button buscarBoton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="busquedaCampo"
-    private TextField busquedaCampo; // Value injected by FXMLLoader
-
-    @FXML // fx:id="clonarReporteBoton"
-    private Button clonarReporteBoton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colDescripcion"
-    private TableColumn<?, ?> colDescripcion; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colEnfermedad"
-    private TableColumn<?, ?> colEnfermedad; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colFecha"
-    private TableColumn<?, ?> colFecha; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colMedicamento"
-    private TableColumn<?, ?> colMedicamento; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colPaciente"
-    private TableColumn<?, ?> colPaciente; // Value injected by FXMLLoader
-
-    @FXML // fx:id="colTitulo"
-    private TableColumn<?, ?> colTitulo; // Value injected by FXMLLoader
-
-    @FXML // fx:id="descripcionCampo"
-    private TextField descripcionCampo; // Value injected by FXMLLoader
-
-    @FXML // fx:id="eliminarReporteBoton"
-    private Button eliminarReporteBoton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="enfermedadCampo"
-    private TextField enfermedadCampo; // Value injected by FXMLLoader
-
-    @FXML // fx:id="fechaReporte"
-    private DatePicker fechaReporte; // Value injected by FXMLLoader
-
-    @FXML // fx:id="medicamentoCampo"
-    private TextField medicamentoCampo; // Value injected by FXMLLoader
-
-    @FXML // fx:id="pacienteComboBox"
-    private ComboBox<?> pacienteComboBox; // Value injected by FXMLLoader
-
-    @FXML // fx:id="recargarBoton"
-    private Button recargarBoton; // Value injected by FXMLLoader
-
-    @FXML // fx:id="reportesTabla"
-    private TableView<?> reportesTabla; // Value injected by FXMLLoader
-
-    @FXML // fx:id="tituloCampo"
-    private TextField tituloCampo; // Value injected by FXMLLoader
-
-
     @FXML
     void agregarReporteAccion(ActionEvent event) {
 
     }
 
     @FXML
-
     void atrasAccion(ActionEvent event) {
         // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
         Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -166,7 +94,6 @@ public class ReporteController {
     }
 
     @FXML
-
     void buscarAccion(ActionEvent event) {
 
     }
@@ -186,16 +113,10 @@ public class ReporteController {
 
     }
 
-
     @FXML
     void initialize() {
         assert agregarReporteBoton != null : "fx:id=\"agregarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
         assert atrasBoton != null : "fx:id=\"atrasBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
-
-    @FXML // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
-        assert agregarReporteBoton != null : "fx:id=\"agregarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
-
         assert buscarBoton != null : "fx:id=\"buscarBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
         assert busquedaCampo != null : "fx:id=\"busquedaCampo\" was not injected: check your FXML file 'ReporteView.fxml'.";
         assert clonarReporteBoton != null : "fx:id=\"clonarReporteBoton\" was not injected: check your FXML file 'ReporteView.fxml'.";
