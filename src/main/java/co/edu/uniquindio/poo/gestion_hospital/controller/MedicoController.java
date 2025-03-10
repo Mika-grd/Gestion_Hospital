@@ -5,10 +5,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class MedicoController {
 
@@ -50,7 +52,9 @@ public class MedicoController {
 
     @FXML
     void atrasAccion(ActionEvent event) {
-
+        // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
+        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stageActual.close();
     }
 
     @FXML

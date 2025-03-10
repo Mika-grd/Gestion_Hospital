@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -32,6 +33,9 @@ public class PacienteController {
 
     @FXML
     private TableColumn<?, ?> edadColumna;
+
+    @FXML
+    private Button eliminarPacienteBoton;
 
     @FXML
     private TableColumn<?, ?> idColumna;
@@ -70,6 +74,11 @@ public class PacienteController {
     }
 
     @FXML
+    void eliminarPacienteAccion(ActionEvent event) {
+
+    }
+
+    @FXML
     void recargarAccion(ActionEvent event) {
 
     }
@@ -81,6 +90,7 @@ public class PacienteController {
         assert buscarBoton != null : "fx:id=\"buscarBoton\" was not injected: check your FXML file 'PacienteView.fxml'.";
         assert busquedaCampo != null : "fx:id=\"busquedaCampo\" was not injected: check your FXML file 'PacienteView.fxml'.";
         assert edadColumna != null : "fx:id=\"edadColumna\" was not injected: check your FXML file 'PacienteView.fxml'.";
+        assert eliminarPacienteBoton != null : "fx:id=\"eliminarPacienteBoton\" was not injected: check your FXML file 'PacienteView.fxml'.";
         assert idColumna != null : "fx:id=\"idColumna\" was not injected: check your FXML file 'PacienteView.fxml'.";
         assert medicosTabla != null : "fx:id=\"medicosTabla\" was not injected: check your FXML file 'PacienteView.fxml'.";
         assert nombreColumna != null : "fx:id=\"nombreColumna\" was not injected: check your FXML file 'PacienteView.fxml'.";
@@ -92,4 +102,5 @@ public class PacienteController {
     }
 
 }
+
 

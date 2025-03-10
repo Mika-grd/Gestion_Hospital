@@ -12,10 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="541.0" prefWidth="770.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.gestion_hospital.controller.PacienteController">
    <children>
-      <VBox layoutX="24.0" layoutY="111.0" prefHeight="429.0" prefWidth="287.0" spacing="25.0">
+      <VBox layoutX="24.0" layoutY="56.0" prefHeight="429.0" prefWidth="287.0" spacing="25.0">
          <children>
             <Text fill="WHITE" text="Añadir Paciente" wrappingWidth="264.28594970703125">
                <font>
@@ -26,6 +25,8 @@
             <TextField fx:id="pacienteCedulaCampo" prefHeight="30.0" prefWidth="287.0" promptText="Cédula" />
             <TextField fx:id="pacienteEdadCampo" prefHeight="30.0" prefWidth="287.0" promptText="Edad" />
             <Button fx:id="añadirPacienteBoton" onAction="#añadirPacienteAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Añadir Paciente" />
+            <Button fx:id="eliminarPacienteBoton" onAction="#eliminarPacienteAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Eliminar Paciente" />
+            <Button fx:id="gestionarReportesBoton" layoutX="10.0" layoutY="244.0" onAction="#gestionarReportesAccion" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px;" text="Gestionar Reportes" />
             <Button fx:id="atrasBoton" mnemonicParsing="false" onAction="#atrasAccion" text="Atras" textFill="RED" />
          </children>
       </VBox>
