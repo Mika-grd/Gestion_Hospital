@@ -75,6 +75,12 @@ public class PacienteController {
     private Button recargarBoton;
 
     @FXML
+    private Button vocal2Bttn;
+
+    @FXML
+    private Button palindormoBttn;
+
+    @FXML
     void atrasAccion(ActionEvent event) {
         // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
         Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -196,12 +202,34 @@ public class PacienteController {
 
     @FXML
 
-  
+
     void recargarAccion(ActionEvent event) {
         LinkedList<Paciente> listaPacientes = hospital.getListaPacientes();
 
         // Refresca la tabla
         medicosTabla.setItems(FXCollections.observableArrayList(listaPacientes));
+    }
+
+    @FXML
+    void palindromoAction(ActionEvent event) {
+        LinkedList<Paciente> pacientes = hospital.pacientesPalindromos();
+        medicosTabla.setItems(FXCollections.observableArrayList(pacientes));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Resultado");
+        alert.setHeaderText(null);
+        alert.setContentText(pacientes.isEmpty() ? "No hay pacientes con nombres palíndromos." : "Se encontraron pacientes con nombres palíndromos.");
+        alert.showAndWait();
+    }
+
+    @FXML
+    void vocal2Action(ActionEvent event) {
+        LinkedList<Paciente> pacientes = hospital.pacientesDosVocales();
+        medicosTabla.setItems(FXCollections.observableArrayList(pacientes));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Resultado");
+        alert.setHeaderText(null);
+        alert.setContentText(pacientes.isEmpty() ? "No hay pacientes con al menos dos vocales en su nombre." : "Se encontraron pacientes con al menos dos vocales en su nombre.");
+        alert.showAndWait();
     }
 
     @FXML
