@@ -6,25 +6,15 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
-import javafx.scene.Node;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-import javafx.stage.Stage;
-
-
-
 public class CitaController {
-    Hospital hospital = Hospital.getInstance();
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -64,11 +54,6 @@ public class CitaController {
 
     @FXML
     void atrasAccion(ActionEvent event) {
-
-        // Obtener la ventana actual (Pantalla de Pacientes) y cerrarla
-        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stageActual.close();
-
 
     }
 
