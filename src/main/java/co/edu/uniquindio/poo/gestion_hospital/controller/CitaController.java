@@ -1,76 +1,149 @@
-/**
- * Sample Skeleton for 'CitaView.fxml' Controller Class
- */
-
 package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.gestion_hospital.model.Cita;
+import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
+import co.edu.uniquindio.poo.gestion_hospital.model.Medico;
+import co.edu.uniquindio.poo.gestion_hospital.model.Paciente;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.util.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class CitaController {
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
+    private Hospital hospital = Hospital.getInstance();
+
+    @FXML
     private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
+    @FXML
     private URL location;
 
-    @FXML // fx:id="atrasBoton"
-    private Button atrasBoton; // Value injected by FXMLLoader
+    @FXML
+    private Button atrasBoton;
 
-    @FXML // fx:id="añadirCitaBoton"
-    private Button añadirCitaBoton; // Value injected by FXMLLoader
+    @FXML
+    private Button añadirCitaBoton;
 
-    @FXML // fx:id="citasTabla"
-    private TableView<Cita> citasTabla; // Value injected by FXMLLoader
+    @FXML
+    private TableView<Cita> citasTabla;
 
-    @FXML // fx:id="eliminarCitaBoton"
-    private Button eliminarCitaBoton; // Value injected by FXMLLoader
+    @FXML
+    private Button eliminarCitaBoton;
 
-    @FXML // fx:id="fechaColumna"
-    private TableColumn<Cita, ?> fechaColumna; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Cita, LocalDate> fechaColumna;
 
-    @FXML // fx:id="fechaPicker"
-    private DatePicker fechaPicker; // Value injected by FXMLLoader
+    @FXML
+    private DatePicker fechaPicker;
 
-    @FXML // fx:id="medicoColumna"
-    private TableColumn<?, ?> medicoColumna; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Cita, String> medicoColumna;
 
-    @FXML // fx:id="medicoComboBox"
-    private ComboBox<?> medicoComboBox; // Value injected by FXMLLoader
+    @FXML
+    private ComboBox<Medico> medicoComboBox;
 
-    @FXML // fx:id="pacienteColumna"
-    private TableColumn<?, ?> pacienteColumna; // Value injected by FXMLLoader
+    @FXML
+    private TableColumn<Cita, String> pacienteColumna;
 
-    @FXML // fx:id="pacienteComboBox"
-    private ComboBox<?> pacienteComboBox; // Value injected by FXMLLoader
+    @FXML
+    private ComboBox<Paciente> pacienteComboBox;
+
+    private ObservableList<Cita> listaCitas;
 
     @FXML
     void atrasAccion(ActionEvent event) {
-
+        Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stageActual.close();
     }
 
     @FXML
     void añadirCitaAccion(ActionEvent event) {
+        if (medicoComboBox.getValue() == null || pacienteComboBox.getValue() == null || fechaPicker.getValue() == null) {
+            mostrarAlerta("Error", "Debe seleccionar un médico, un paciente y una fecha.");
+            return;
+        }
 
+        Cita nuevaCita = new Cita(fechaPicker.getValue(),medicoComboBox.getValue() ,pacienteComboBox.getValue());
+        hospital.añadirCita(nuevaCita);
+        listaCitas.add(nuevaCita);
+
+        mostrarAlerta("Éxito", "Cita añadida correctamente.");
     }
 
     @FXML
     void eliminarCitaAccion(ActionEvent event) {
+        Cita citaSeleccionada = citasTabla.getSelectionModel().getSelectedItem();
 
+        if (citaSeleccionada == null) {
+            mostrarAlerta("Error", "Debe seleccionar una cita para eliminar.");
+            return;
+        }
+
+        hospital.eliminarCita(citaSeleccionada);
+        listaCitas.remove(citaSeleccionada);
+
+        mostrarAlerta("Éxito", "Cita eliminada correctamente.");
     }
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
+    }
+
+    @FXML
     void initialize() {
+
+        // Obtener la lista de medicos del hospital
+        LinkedList<Medico> listaMedicos = hospital.getListaMedicos();
+
+        // Pasar la lista al ComboBox
+        medicoComboBox.setItems(FXCollections.observableArrayList(listaMedicos));
+
+        // Definir cómo se mostrará cada Medico en el ComboBox
+        medicoComboBox.setConverter(new StringConverter<Medico>() {
+            @Override
+            public String toString(Medico medico) {
+                return (medico != null) ? medico.getNombre() : "";
+            }
+
+            @Override
+            public Medico fromString(String string) {
+                return null; // No se necesita conversión inversa
+            }
+        });
+
+        // Obtener la lista de pacientes del hospital
+        LinkedList<Paciente> listaPacientes = hospital.getListaPacientes();
+
+        // Pasar la lista al ComboBox
+        pacienteComboBox.setItems(FXCollections.observableArrayList(listaPacientes));
+
+        // Definir cómo se mostrará cada paciente en el ComboBox
+        pacienteComboBox.setConverter(new StringConverter<Paciente>() {
+            @Override
+            public String toString(Paciente paciente) {
+                return (paciente != null) ? paciente.getNombre() : "";
+            }
+
+            @Override
+            public Paciente fromString(String string) {
+                return null; // No se necesita conversión inversa
+            }
+        });
         assert atrasBoton != null : "fx:id=\"atrasBoton\" was not injected: check your FXML file 'CitaView.fxml'.";
         assert añadirCitaBoton != null : "fx:id=\"añadirCitaBoton\" was not injected: check your FXML file 'CitaView.fxml'.";
         assert citasTabla != null : "fx:id=\"citasTabla\" was not injected: check your FXML file 'CitaView.fxml'.";
@@ -82,7 +155,19 @@ public class CitaController {
         assert pacienteColumna != null : "fx:id=\"pacienteColumna\" was not injected: check your FXML file 'CitaView.fxml'.";
         assert pacienteComboBox != null : "fx:id=\"pacienteComboBox\" was not injected: check your FXML file 'CitaView.fxml'.";
 
-    }
+        // Configurar columnas de la tabla
+        fechaColumna.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
+        medicoColumna.setCellValueFactory(new PropertyValueFactory<>("nombreMedico"));
+        pacienteColumna.setCellValueFactory(new PropertyValueFactory<>("nombrePaciente"));
 
+        // Inicializar listas
+        listaCitas = FXCollections.observableArrayList(hospital.getListaCitas());
+        citasTabla.setItems(listaCitas);
+
+        // Llenar ComboBox con los datos de Hospital
+        medicoComboBox.setItems(FXCollections.observableArrayList(hospital.getListaMedicos()));
+        pacienteComboBox.setItems(FXCollections.observableArrayList(hospital.getListaPacientes()));
+    }
 }
+
 
