@@ -9,6 +9,7 @@ import co.edu.uniquindio.poo.gestion_hospital.model.Cita;
 import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
 import co.edu.uniquindio.poo.gestion_hospital.model.Medico;
 import co.edu.uniquindio.poo.gestion_hospital.model.Paciente;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.util.StringConverter;
@@ -157,8 +158,15 @@ public class CitaController {
 
         // Configurar columnas de la tabla
         fechaColumna.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
-        medicoColumna.setCellValueFactory(new PropertyValueFactory<>("nombreMedico"));
-        pacienteColumna.setCellValueFactory(new PropertyValueFactory<>("nombrePaciente"));
+        medicoColumna.setCellValueFactory(cellData -> {
+            Medico medico = cellData.getValue().getMedico();
+            return new SimpleStringProperty(medico != null ? medico.getNombre() : "Desconocido");
+        });
+
+        pacienteColumna.setCellValueFactory(cellData -> {
+            Paciente paciente = cellData.getValue().getPaciente();
+            return new SimpleStringProperty(paciente != null ? paciente.getNombre() : "Desconocido");
+        });
 
         // Inicializar listas
         listaCitas = FXCollections.observableArrayList(hospital.getListaCitas());
