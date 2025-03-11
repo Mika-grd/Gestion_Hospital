@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 public class ConfiguracionController {
+    Hospital hospital = Hospital.getInstance();
 
     @FXML
     private ResourceBundle resources;

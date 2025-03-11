@@ -3,17 +3,20 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
+import co.edu.uniquindio.poo.gestion_hospital.model.Medico;
+import co.edu.uniquindio.poo.gestion_hospital.model.Paciente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class MedicoController {
+    Hospital hospital = Hospital.getInstance();
 
     @FXML
     private ResourceBundle resources;
@@ -63,7 +66,31 @@ public class MedicoController {
 
     @FXML
     void añadirMedicoAccion(ActionEvent event) {
+        if (medicoNombreCampo.getText().isEmpty() ||
+                medicoCedulaCampo.getText().isEmpty()) {
 
+            // Mostrar alerta si algún campo está vacío
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Error al añadir paciente");
+            alerta.setHeaderText(null);
+            alerta.setContentText("Todos los campos son obligatorios. ¡Por favor, complétalos!");
+            alerta.showAndWait();
+
+        } else {
+            // Crear y añadir paciente
+            Medico medico = new Medico(
+                    medicoNombreCampo.getText(),
+                    medicoCedulaCampo.getText()
+            );
+            hospital.agregarMedico(medico);
+
+            // Mostrar mensaje de éxito (opcional)
+            Alert confirmacion = new Alert(Alert.AlertType.INFORMATION);
+            confirmacion.setTitle("Medico añadido");
+            confirmacion.setHeaderText(null);
+            confirmacion.setContentText("El medico ha sido añadido con éxito.");
+            confirmacion.showAndWait();
+        }
     }
 
     @FXML
