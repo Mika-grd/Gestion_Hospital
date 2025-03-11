@@ -23,36 +23,31 @@
                     </font>
                 </Text>
                 <ComboBox fx:id="pacienteComboBox" prefWidth="287.0" promptText="Seleccionar Paciente" />
-                <TextField fx:id="tituloCampo" promptText="Título del Reporte" />
                 <TextField fx:id="descripcionCampo" promptText="Descripción" />
-                <TextField fx:id="enfermedadCampo" promptText="Enfermedad" />
                 <TextField fx:id="medicamentoCampo" promptText="Medicamento" />
                 <DatePicker fx:id="fechaReporte" promptText="Seleccionar Fecha" />
                 <HBox spacing="10">
                     <children>
                         <Button fx:id="agregarReporteBoton" onAction="#agregarReporteAccion" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Agregar" />
-                        <Button fx:id="eliminarReporteBoton" onAction="#eliminarReporteAccion" style="-fx-background-color: #F44336; -fx-text-fill: white;" text="Eliminar" />
+                  <Button fx:id="editarReporteBoton" layoutX="10.0" layoutY="10.0" onAction="#editarReporteAccion" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Editar" />
                         <Button fx:id="clonarReporteBoton" onAction="#clonarReporteAccion" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Clonar" />
+                        <Button fx:id="eliminarReporteBoton" onAction="#eliminarReporteAccion" style="-fx-background-color: #F44336; -fx-text-fill: white;" text="Eliminar" />
                     </children>
                 </HBox>
             </children>
         </VBox>
 
-        <TableView fx:id="reportesTabla" layoutX="320.0" layoutY="20.0" prefHeight="500.0" prefWidth="480.0" style="-fx-background-color: rgba(208, 208, 208, 0.9);">
+        <TableView fx:id="reportesTabla" layoutX="320.0" layoutY="14.0" prefHeight="500.0" prefWidth="581.0" style="-fx-background-color: rgba(208, 208, 208, 0.9);">
             <columns>
-                <TableColumn fx:id="colPaciente" prefWidth="100.0" text="Paciente" />
-                <TableColumn fx:id="colTitulo" prefWidth="120.0" text="Título" />
-                <TableColumn fx:id="colDescripcion" prefWidth="150.0" text="Descripción" />
-                <TableColumn fx:id="colEnfermedad" prefWidth="120.0" text="Enfermedad" />
-                <TableColumn fx:id="colMedicamento" prefWidth="120.0" text="Medicamento" />
-                <TableColumn fx:id="colFecha" prefWidth="90.0" text="Fecha" />
+                <TableColumn fx:id="colPaciente" prefWidth="138.0" text="Paciente" />
+                <TableColumn fx:id="colDescripcion" prefWidth="173.0" text="Descripción" />
+                <TableColumn fx:id="colMedicamento" prefWidth="114.0" text="Medicamento" />
+                <TableColumn fx:id="colFecha" prefWidth="155.0" text="Fecha" />
             </columns>
         </TableView>
 
         <HBox layoutX="320.0" layoutY="530.0" spacing="10.0">
             <children>
-                <TextField fx:id="busquedaCampo" prefWidth="271.0" promptText="Buscar Reporte..." />
-                <Button fx:id="buscarBoton" onAction="#buscarAccion" text="Buscar" />
                 <Button fx:id="recargarBoton" onAction="#recargarAccion" text="Recargar" />
             </children>
             <padding>
