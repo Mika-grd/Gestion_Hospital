@@ -6,6 +6,8 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.gestion_hospital.model.Cita;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,13 +31,13 @@ public class CitaController {
     private Button añadirCitaBoton; // Value injected by FXMLLoader
 
     @FXML // fx:id="citasTabla"
-    private TableView<?> citasTabla; // Value injected by FXMLLoader
+    private TableView<Cita> citasTabla; // Value injected by FXMLLoader
 
     @FXML // fx:id="eliminarCitaBoton"
     private Button eliminarCitaBoton; // Value injected by FXMLLoader
 
     @FXML // fx:id="fechaColumna"
-    private TableColumn<?, ?> fechaColumna; // Value injected by FXMLLoader
+    private TableColumn<Cita, ?> fechaColumna; // Value injected by FXMLLoader
 
     @FXML // fx:id="fechaPicker"
     private DatePicker fechaPicker; // Value injected by FXMLLoader
