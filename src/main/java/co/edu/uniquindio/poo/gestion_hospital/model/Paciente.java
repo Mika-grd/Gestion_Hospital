@@ -66,4 +66,13 @@ public class Paciente {
     public void setCitasPropias(LinkedList<Cita> citasPropias) {
         this.citasPropias = citasPropias;
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "nombre='" + nombre + '\'' +
+                ", id='" + id + '\'' +
+                ", edad='" + edad + '\'' +
+                '}';
+    }
 }
