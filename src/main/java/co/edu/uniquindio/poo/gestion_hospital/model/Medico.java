@@ -4,14 +4,14 @@ import java.util.LinkedList;
 
 public class Medico {
 
-    private String nombre,idMedico;
+    private String nombre,id;
     private LinkedList<Cita> citasPropias = new LinkedList<>();
 
     // Constructor
     public Medico(String nombre, String idMedico) {
         this.nombre = nombre;
 
-        this.idMedico = idMedico;
+        this.id = idMedico;
     }
 
     // Getters y Setters
@@ -24,12 +24,12 @@ public class Medico {
     }
 
 
-    public String getIdMedico() {
-        return idMedico;
+    public String getId() {
+        return id;
     }
 
     public void setIdMedico(String idMedico) {
-        this.idMedico = idMedico;
+        this.id = idMedico;
     }
 
     public LinkedList<Cita> getCitasPropias() {
@@ -43,6 +43,6 @@ public class Medico {
     // Método toString
     @Override
     public String toString() {
-        return "Medico [nombre=" + nombre +  " idMedico=" + idMedico + "]";
+        return "Medico [nombre=" + nombre +  " idMedico=" + id + "]";
     }
 }

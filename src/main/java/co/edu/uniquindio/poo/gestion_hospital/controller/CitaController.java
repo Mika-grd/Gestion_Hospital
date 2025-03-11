@@ -6,6 +6,8 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 
 
 public class CitaController {
+    Hospital hospital = Hospital.getInstance();
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;

@@ -5,8 +5,8 @@ import java.util.LinkedList;
 public class Paciente {
 
     private final Hospital hospital = Hospital.getInstance();
-    private String nombre, idPaciente;
-    private int edad;
+    private String nombre, id;
+    private String edad;
     private LinkedList<Reporte> historialMedico;
     private LinkedList<Cita> citasPropias = new LinkedList<>();
 
@@ -20,9 +20,9 @@ public class Paciente {
         return hospital.eliminarReporte(reporte, historialMedico);
     }
 
-    public Paciente(String nombre, String idPaciente, int edad, LinkedList<Reporte> historialMedico) {
+    public Paciente(String nombre, String idPaciente, String edad, LinkedList<Reporte> historialMedico) {
         this.nombre = nombre;
-        this.idPaciente = idPaciente;
+        this.id = idPaciente;
         this.edad = edad;
         this.historialMedico = historialMedico;
     }
@@ -35,19 +35,19 @@ public class Paciente {
         this.nombre = nombre;
     }
 
-    public String getIdPaciente() {
-        return idPaciente;
+    public String getId() {
+        return id;
     }
 
     public void setIdPaciente(String idPaciente) {
-        this.idPaciente = idPaciente;
+        this.id = idPaciente;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 

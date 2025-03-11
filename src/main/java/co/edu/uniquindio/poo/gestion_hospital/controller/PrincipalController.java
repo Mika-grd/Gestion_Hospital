@@ -4,6 +4,8 @@ package co.edu.uniquindio.poo.gestion_hospital.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.poo.gestion_hospital.model.Hospital;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,6 +96,7 @@ public class PrincipalController {
 
     @FXML
     void initialize() {
+        Hospital hospital = Hospital.getInstance();
         assert configuracionHospitalBoton != null : "fx:id=\"configuracionHospitalBoton\" was not injected: check your FXML file 'PrincipalView.fxml'.";
         assert gestionarCitasBoton != null : "fx:id=\"gestionarCitasBoton\" was not injected: check your FXML file 'PrincipalView.fxml'.";
         assert gestionarMedicosBoton != null : "fx:id=\"gestionarMedicosBoton\" was not injected: check your FXML file 'PrincipalView.fxml'.";
