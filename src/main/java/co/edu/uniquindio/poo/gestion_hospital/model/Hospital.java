@@ -4,7 +4,6 @@ package co.edu.uniquindio.poo.gestion_hospital.model;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Hospital {
     private String nombre;
@@ -269,7 +268,7 @@ public class Hospital {
     }
 
     public static void setMaxPacientes(int maxPacientes) {
-        maxPacientes = maxPacientes;
+        Hospital.maxPacientes = maxPacientes;
     }
 
     public  boolean isFacturacionElectronica() {
@@ -278,5 +277,24 @@ public class Hospital {
 
     public static void setFacturacionElectronica(boolean facturacionElectronica) {
         isFacturacionElectronica = facturacionElectronica;
+    }
+
+    public void cargarDatos() {
+        Paciente paciente1 = new Paciente("Juan", "123", "123456", new LinkedList<>());
+        Paciente paciente2 = new Paciente("Pedro", "124", "123456", new LinkedList<>());
+        Paciente paciente3 = new Paciente("Maria", "125", "123456", new LinkedList<>());
+        Paciente paciente4 = new Paciente("Ana", "126", "123456", new LinkedList<>());
+
+        ListaPacientes.add(paciente1);
+        ListaPacientes.add(paciente2);
+        ListaPacientes.add(paciente3);
+        ListaPacientes.add(paciente4);
+
+        Medico medico1 = new Medico("Juan", "123");
+        Medico medico2 = new Medico("Pedro", "124");
+
+        ListaMedicos.add(medico1);
+        ListaMedicos.add(medico2);
+
     }
 }
