@@ -101,7 +101,7 @@ public class ConfiguracionController {
         // Inicializar ComboBox con valores
         facturacionElectronicaCombo.getItems().addAll("Sí", "No");
         horariosCombo.getItems().addAll("Mañana", "Tarde", "Noche", "24 horas");
-        numeroPacientesCombo.getItems().addAll("1", "2", "3", "5", "10");
+        numeroPacientesCombo.getItems().addAll("1", "2", "3", "5", "10", "30");
 
         // Establecer valores por defecto
         facturacionElectronicaCombo.setValue("No");

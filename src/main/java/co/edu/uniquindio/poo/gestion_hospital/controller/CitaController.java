@@ -70,20 +70,30 @@ public class CitaController {
 
     @FXML
     void añadirCitaAccion(ActionEvent event) {
+        Medico medico = (Medico) medicoComboBox.getSelectionModel().getSelectedItem();
+        Paciente paciente = (Paciente) pacienteComboBox.getSelectionModel().getSelectedItem();
         if (medicoComboBox.getValue() == null || pacienteComboBox.getValue() == null || fechaPicker.getValue() == null) {
             mostrarAlerta("Error", "Debe seleccionar un médico, un paciente y una fecha.");
+            return;
+        }
+
+        if (medico.numeroCitas() >= hospital.getMaxPacientes()){
+            mostrarAlerta("Error", "El médico ya tiene el número máximo de citas.");
             return;
         }
 
         Cita nuevaCita = new Cita(fechaPicker.getValue(),medicoComboBox.getValue() ,pacienteComboBox.getValue());
         hospital.añadirCita(nuevaCita);
         listaCitas.add(nuevaCita);
+        medico.getCitasPropias().add(nuevaCita);
+        paciente.getCitasPropias().add(nuevaCita);
 
         mostrarAlerta("Éxito", "Cita añadida correctamente.");
     }
 
     @FXML
     void eliminarCitaAccion(ActionEvent event) {
+        Medico medico = (Medico) medicoComboBox.getSelectionModel().getSelectedItem();
         Cita citaSeleccionada = citasTabla.getSelectionModel().getSelectedItem();
 
         if (citaSeleccionada == null) {
@@ -93,6 +103,7 @@ public class CitaController {
 
         hospital.eliminarCita(citaSeleccionada);
         listaCitas.remove(citaSeleccionada);
+        medico.getCitasPropias().remove(citaSeleccionada);
 
         mostrarAlerta("Éxito", "Cita eliminada correctamente.");
     }

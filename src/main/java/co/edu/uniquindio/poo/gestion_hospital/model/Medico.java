@@ -14,6 +14,11 @@ public class Medico {
         this.id = idMedico;
     }
 
+    //Metodo para retornar el numero de cita
+    public int numeroCitas(){
+        return citasPropias.size();
+    }
+
     // Getters y Setters
     public String getNombre() {
         return nombre;
